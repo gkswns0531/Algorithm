@@ -42,33 +42,25 @@ def for_linear_search_inefficient(L:list, value:int)->int:
     if i == len(L)-1:
         return -1
 
+def time_complexity(func, L:list, value:int)->float:
+    start_time = time.perf_counter()
+    ans = func(L,value)
+    end_time = time.perf_counter()
+
+    time_ms = (end_time - start_time) * 1000
+
+    return time_ms
+
+
+
 if __name__ == '__main__':
     L = [1 for i in range(1000*10000)]
     L.append(10)
-
-    while_start = time.perf_counter()
-    ans_1 = while_linear_search(L,10)
-    while_end = time.perf_counter()
     
-    while_linear_search_time = (while_end - while_start) * 1000
-
-    sentinel_start = time.perf_counter()
-    ans_2 = while_linear_search_sentinel(L,10)
-    sentinel_end = time.perf_counter()
-    
-    sentinel_linear_search_time = (sentinel_end - sentinel_start) * 1000
-
-    for_start = time.perf_counter()
-    ans_3 = for_linear_search(L,10)
-    for_end = time.perf_counter()
-    
-    for_linear_search_time = (for_end - for_start) * 1000
-
-    for_ineff_start = time.perf_counter()
-    ans_3 = for_linear_search_inefficient(L,10)
-    for_ineff_end = time.perf_counter()
-    
-    for_linear_search_ineff_time = (for_ineff_end - for_ineff_start) * 1000
+    while_linear_search_time = time_complexity(while_linear_search, L, 10)
+    sentinel_linear_search_time = time_complexity(while_linear_search_sentinel, L, 10)
+    for_linear_search_time = time_complexity(for_linear_search, L, 10)
+    for_linear_search_ineff_time = time_complexity(for_linear_search_inefficient, L, 10)
 
     print(f"While Linear Search: {while_linear_search_time}")
     print(f"Sentinel Linear Search: {sentinel_linear_search_time}")
