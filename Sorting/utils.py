@@ -1,13 +1,16 @@
 import time
 import random
 
-def time_complexity(func)->list:
+def time_complexity(func,args:any=None)->list:
     L = [i for i in range(1000)]
     random.shuffle(L)
     print("Before Sorting: ",L[:10])
 
     start_time = time.perf_counter()
-    func(L)
+    if not args:
+        func(L)
+    else:
+        func(L,args)
     end_time = time.perf_counter()
     flag = sanity_check(L)
     print("After Sorting: ",L[:10])

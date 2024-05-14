@@ -93,7 +93,7 @@ def merge(L:list, start:int, mid:int, end:int)->None:
 
 
 
-def quick_sort(L:list)->None:
+def quick_sort(L:list,random_partition=False)->None:
     '''
     1. select partition (= pivot)
         1) semi sorting ( small comp < pivot < big comp)
@@ -101,19 +101,23 @@ def quick_sort(L:list)->None:
     3. use recursion
     '''
     n = len(L)
-    quick_sort_help(L,0,n-1)
+    quick_sort_help(L,0,n-1,random_partition=random_partition)
     return
 
-def quick_sort_help(L:list, start:int, end:int)->None:
+def quick_sort_help(L:list, start:int, end:int, random_partition=False)->None:
     if start >= end:
         return
     else:
-        pivot_idx = partition(L,start,end)
+        pivot_idx = partition(L, start, end, random_partition=random_partition)
 
-        quick_sort_help(L, start, pivot_idx-1)
-        quick_sort_help(L, pivot_idx+1, end)
+        quick_sort_help(L, start, pivot_idx-1, random_partition=random_partition)
+        quick_sort_help(L, pivot_idx+1, end, random_partition=random_partition)
         
-def partition(L:list, start:int, end:int)->int:
+def partition(L:list, start:int, end:int, random_partition=False)->int:
+    if random_partition == True:
+        random_idx = start + (end - start)//2
+        L[random_idx], L[end] = L[end], L[random_idx]
+
     pivot = L[end]
     k = start-1 # checking idx: point out comp which is bigger than pivot => k+1 idx > pivot, k idx < pivot
 
@@ -125,9 +129,6 @@ def partition(L:list, start:int, end:int)->int:
     L[k], L[end] = L[end], L[k]
 
     return k
-
-    
-
 
 if __name__ == "__main__":
 
@@ -144,4 +145,7 @@ if __name__ == "__main__":
     print(f"Merge Sort: {merge_time}\n")
 
     quick_time = utils.time_complexity(quick_sort)
+    print(f"Quick Sort: {quick_time}\n")
+
+    quick_time = utils.time_complexity(quick_sort,True)
     print(f"Quick Sort: {quick_time}\n")
