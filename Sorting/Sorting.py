@@ -87,10 +87,10 @@ if __name__ == "__main__":
     print(L[:10])
     print(insertion_time)
 
-    L = [i for i in range(10000)]
-    random.shuffle(L)
+    # L = [i for i in range(10000)]
+    # random.shuffle(L)
 
-    print(L[:10])
-    merge_time = utils.time_complexity(merge_sort,L)
-    print(L[:10])
-    print(merge_time)
+    # print(L[:10])
+    # merge_time = utils.time_complexity(merge_sort,L)
+    # print(L[:10])
+    # print(merge_time)
