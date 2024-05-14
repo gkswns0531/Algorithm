@@ -132,16 +132,16 @@ def partition(L:list, start:int, end:int)->int:
 if __name__ == "__main__":
 
     bubble_time = utils.time_complexity(bubble_sort)
-    print(f"Selection Sort: {bubble_time}")
+    print(f"Bubble Sort: {bubble_time}\n")
     
     selection_time = utils.time_complexity(selection_sort)
-    print(f"Selection Sort: {selection_time}")
+    print(f"Selection Sort: {selection_time}\n")
 
     insertion_time = utils.time_complexity(insertion_sort)
-    print(f"Insertion Sort: {insertion_time}")
+    print(f"Insertion Sort: {insertion_time}\n")
 
     merge_time = utils.time_complexity(merge_sort)
-    print(f"Merge Sort: {merge_time}")
+    print(f"Merge Sort: {merge_time}\n")
 
     quick_time = utils.time_complexity(quick_sort)
-    print(f"Quick Sort: {quick_time}")
+    print(f"Quick Sort: {quick_time}\n")
