@@ -71,26 +71,11 @@ def merge(L:list, start:int, mid:int, end:int)->None:
 
 if __name__ == "__main__":
     
-    L = [i for i in range(10000)]
-    random.shuffle(L)
+    selection_time = utils.time_complexity(selection_sort)
+    print(f"Selection Sort: {selection_time}")
 
-    print(L[:10])
-    selection_time = utils.time_complexity(selection_sort,L)
-    print(L[:10])
-    print(selection_time)
+    insertion_time = utils.time_complexity(insertion_sort)
+    print(f"Insertion Sort: {insertion_time}")
 
-    L = [i for i in range(10000)]
-    random.shuffle(L)
-
-    print(L[:10])
-    insertion_time = utils.time_complexity(insertion_sort,L)
-    print(L[:10])
-    print(insertion_time)
-
-    L = [i for i in range(10000)]
-    random.shuffle(L)
-
-    print(L[:10])
-    merge_time = utils.time_complexity(merge_sort,L)
-    print(L[:10])
-    print(merge_time)
+    merge_time = utils.time_complexity(merge_sort)
+    print(f"Merge Sort: {merge_time}")
