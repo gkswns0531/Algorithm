@@ -117,14 +117,14 @@ def partition(L:list, start:int, end:int)->int:
     pivot = L[end]
     k = start-1 # checking idx: point out comp which is bigger than pivot => k+1 idx > pivot, k idx < pivot
 
-    for i in range(start,end-1):
+    for i in range(start,end):
         if L[i] <= pivot:
             k += 1
             L[k], L[i] = L[i], L[k]
+    k += 1
+    L[k], L[end] = L[end], L[k]
 
-    L[k+1], L[end] = L[end], L[k+1]
-
-    return k+1
+    return k
 
     
 
