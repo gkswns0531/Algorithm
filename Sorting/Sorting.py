@@ -45,8 +45,6 @@ def insertion_sort(L:list)->None:
                 break
     return 
 
-
-
 def merge_sort(L:list)->None:
     '''
     1. L -> divide into two sublist
@@ -89,9 +87,6 @@ def merge(L:list, start:int, mid:int, end:int)->None:
         L[k:end+1] = sub_list1[i:]
     elif j < sub2_n:
         L[k:end+1] = sub_list2[j:]
-
-
-
 
 def quick_sort(L:list,random_partition=False)->None:
     '''
