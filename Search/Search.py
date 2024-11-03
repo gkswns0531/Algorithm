@@ -1,4 +1,5 @@
 import utils
+import time
 
 def while_linear_search(L:list, value:int)->int:
     i=0
@@ -74,4 +75,4 @@ if __name__ == '__main__':
     print(f"Sentinel Linear Search: {sentinel_linear_search_time[1]}, Ans: {sentinel_linear_search_time[0]}")
     print(f"For Linear Search: {for_linear_search_time[1]}, Ans: {for_linear_search_time[0]}")
     print(f"For Linear Search Inefficient: {for_linear_search_ineff_time[1]}, Ans: {for_linear_search_ineff_time[0]}")
-    print(f"Binary Search: {binary_search_time[1]}, Ans: {binary_search_time[0]}")
+    print(f"Binary Search: {binary_search_time[1]}, Ans: {binary_search_time[0]}")  
